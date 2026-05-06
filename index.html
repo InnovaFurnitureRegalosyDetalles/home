@@ -44,17 +44,26 @@ margin-top:10px;
 </div>
 
 <div class="logo">INNOVA FURNITURE</div>
-<div class="sub">Regalos y Detalles ✨</div>
+<div class="sub">Regalos y Detalles que enamoran 😍😍😍🎁</div>
 
 <p class="recuerda">
 RECUERDA QUE NUESTROS DETALLES ESTÁN DISPONIBLES EN FORMATO MASCULINO Y FEMENINO, DISEÑADOS PARA ADAPTARSE PERFECTAMENTE A QUIEN DESEAS SORPRENDER.
 </p>
 
 <p style="max-width:700px;margin:15px auto;color:#facc15;">
-✨ Creamos detalles digitales únicos que convierten momentos en recuerdos inolvidables 💖
+Se trata de una tienda online Premium certificada ⭐⭐⭐⭐⭐ sólo para personas exclusivas ©  
+</p>
+
+<!-- CONTADOR DINÁMICO -->
+<p style="max-width:700px;margin:15px auto;color:#facc15;">
+🛍️ <span id="liveCount">12</span> personas están hablando de este producto ahora 📱⚡🔥
 </p>
 
 <div class="container">
+
+<p style="max-width:700px;margin:15px auto;color:#facc15;">
+✨ Creamos detalles digitales únicos que convierten momentos en recuerdos inolvidables 💖
+</p>
 
 <div class="card">
 <h2>💖 No es un regalo… es una experiencia</h2>
@@ -88,7 +97,7 @@ RECUERDA QUE NUESTROS DETALLES ESTÁN DISPONIBLES EN FORMATO MASCULINO Y FEMENIN
 <h3>📦 ¿Qué recibes?</h3>
 <p>
 ✔ Código HTML listo<br>
-✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú la llamas 😍<br>
+✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú le llamas 😍<br>
 ✔ Compatible con celular y PC<br>
 ✔ Link para compartir<br>
 ✔ Entrega en máximo 24h 💌
@@ -119,7 +128,7 @@ RECUERDA QUE NUESTROS DETALLES ESTÁN DISPONIBLES EN FORMATO MASCULINO Y FEMENIN
 <p>
 ✔ Código HTML listo<br>
 ✔ Animación premium<br>
-✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú la llamas 😍<br>
+✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú le llamas 😍<br>
 ✔ Link listo para enviar<br>
 ✔ Entrega en máximo 24h 💌
 </p>
@@ -195,10 +204,10 @@ input.value = palabras.slice(0,2).join(" ");
 function enviarDatos(e){
 e.preventDefault();
 
-let correo=document.getElementById("correo").value;
-let nombre=document.getElementById("nombre").value;
+let correo = document.getElementById("correo").value;
+let nombre = document.getElementById("nombre").value;
 
-let apodos=[
+let apodos = [
 document.getElementById("a1").value,
 document.getElementById("a2").value,
 document.getElementById("a3").value,
@@ -206,10 +215,30 @@ document.getElementById("a4").value,
 document.getElementById("a5").value
 ];
 
-let mensaje="Correo: "+correo+"%0D%0ANombre: "+nombre+"%0D%0AApodos: "+apodos.join(", ");
+let mensaje =
+"Correo: " + correo +
+"%0D%0ANombre: " + nombre +
+"%0D%0AApodos: " + apodos.join(", ");
 
-window.location.href="mailto:innovafurniture.shop@gmail.com?subject=Pedido&body="+mensaje;
+let url =
+"https://mail.google.com/mail/?view=cm&fs=1"
++ "&to=innovafurniture.shop@gmail.com"
++ "&su=Pedido Innova Furniture"
++ "&body=" + encodeURIComponent(mensaje);
+
+window.open(url, "_blank");
 }
+
+// 🔥 CONTADOR (YA DENTRO DEL SCRIPT)
+function randomCounter(){
+let min = 12;
+let max = 50;
+let value = Math.floor(Math.random() * (max - min + 1)) + min;
+document.getElementById("liveCount").innerText = value;
+}
+
+randomCounter();
+setInterval(randomCounter, 30000);
 </script>
 
 <div style="margin-top:40px;padding:20px;color:#888;font-size:0.8em;border-top:1px solid rgba(255,215,0,0.2);">
