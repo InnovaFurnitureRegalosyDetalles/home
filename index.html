@@ -292,6 +292,36 @@ margin:0 0 8px;
 text-align:center;
 }
 .order-panel button{margin-top:8px}
+.option-list{
+display:grid;
+gap:10px;
+margin:14px 0;
+}
+.option-card{
+display:flex;
+gap:10px;
+align-items:flex-start;
+padding:12px;
+border:1px solid rgba(214,180,95,.22);
+border-radius:8px;
+background:rgba(0,0,0,.22);
+cursor:pointer;
+}
+.option-card input{
+width:auto;
+margin:4px 0 0;
+accent-color:gold;
+}
+.option-card span{
+display:block;
+line-height:1.35;
+}
+.personalization-fields{
+margin-top:8px;
+}
+.payment-choice-link{
+margin:12px 0 6px;
+}
 .footer{
 margin-top:40px;
 padding:22px;
@@ -384,13 +414,11 @@ Se trata de una tienda online Premium certificada ⭐⭐⭐⭐⭐ sólo para per
 <div>
 <div class="price" data-i18n="standardPrice">$9.99 - Versión Standard</div>
 <p class="small" data-i18n="standardNote">Plantilla lista para enviar (no personalizada)</p>
-<a class="button-link" href="https://www.paypal.com/ncp/payment/8DLWACR23MNNE" target="_blank" data-i18n="payNow">Pagar ahora 💳</a>
 </div>
 
 <div>
 <div class="price" data-i18n="customPrice">$14.99 Personalizado</div>
 <p class="small" data-i18n="customNote">Con nombre y sobrenombres especiales</p>
-<a class="button-link" href="https://www.paypal.com/ncp/payment/GEQBP3VEM6D3S" target="_blank" data-i18n="customize">Personalizar 💖</a>
 </div>
 </div>
 
@@ -413,10 +441,21 @@ Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>
 ⏱️ Entrega en máximo 24 horas
 </p>
 
-<form onsubmit="enviarDatos(event)" data-producto="La Majestuosa Galaxia del Amor" data-version="Personalizado $14.99">
+<form onsubmit="enviarDatos(event)" data-producto="La Majestuosa Galaxia del Amor">
+<div class="option-list">
+<label class="option-card">
+<input type="radio" name="opcion" value="Standard $9.99" data-paypal="https://www.paypal.com/ncp/payment/8DLWACR23MNNE" checked onchange="actualizarOpcionProducto(this.form)">
+<span><strong data-i18n="standardPrice">$9.99 - Versión Standard</strong><span data-i18n="standardNote">Plantilla lista para enviar (no personalizada)</span></span>
+</label>
+<label class="option-card">
+<input type="radio" name="opcion" value="Personalizado $14.99" data-paypal="https://www.paypal.com/ncp/payment/GEQBP3VEM6D3S" onchange="actualizarOpcionProducto(this.form)">
+<span><strong data-i18n="customPrice">$14.99 Personalizado</strong><span data-i18n="customNote">Con nombre y sobrenombres especiales</span></span>
+</label>
+</div>
 <input type="text" name="cliente" placeholder="Tu nombre completo" data-i18n-placeholder="clientNamePlaceholder" required><br>
 <input type="email" name="correo" placeholder="Tu correo (el del pago)" data-i18n-placeholder="emailPlaceholder" required><br>
 <input type="tel" name="telefono" placeholder="Número de contacto (opcional)" data-i18n-placeholder="phonePlaceholder"><br>
+<div class="personalization-fields">
 <input type="text" name="nombre" placeholder="Nombre de la persona especial" data-i18n-placeholder="namePlaceholder" required><br>
 
 <input type="text" name="a1" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 1" data-i18n-placeholder="nickname1"><br>
@@ -424,7 +463,9 @@ Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>
 <input type="text" name="a3" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 3" data-i18n-placeholder="nickname3"><br>
 <input type="text" name="a4" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 4" data-i18n-placeholder="nickname4"><br>
 <input type="text" name="a5" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 5" data-i18n-placeholder="nickname5"><br>
+</div>
 
+<a class="button-link payment-choice-link" href="https://www.paypal.com/ncp/payment/8DLWACR23MNNE" target="_blank" data-i18n="paySelected">Pagar opción seleccionada 💳</a>
 <button type="submit" data-i18n="sendData">Enviar Datos 💖</button>
 </form>
 
@@ -455,13 +496,11 @@ innovafurniture.shop@gmail.com
 <div>
 <div class="price" data-i18n="standardPrice">$9.99 - Versión Standard</div>
 <p class="small" data-i18n="standardNote">Plantilla lista para enviar (no personalizada)</p>
-<a class="button-link" href="https://www.paypal.com/ncp/payment/2RZGEZYSQ9FES" target="_blank" data-i18n="payNow">Pagar ahora 💳</a>
 </div>
 
 <div>
 <div class="price" data-i18n="customPrice">$14.99 Personalizado</div>
 <p class="small" data-i18n="customNote">Con nombre y sobrenombres especiales</p>
-<a class="button-link" href="https://www.paypal.com/ncp/payment/PV58FCGW4X9GN" target="_blank" data-i18n="customize">Personalizar 💖</a>
 </div>
 </div>
 
@@ -484,10 +523,21 @@ Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>
 ⏱️ Entrega en máximo 24 horas
 </p>
 
-<form onsubmit="enviarDatos(event)" data-producto="La Imponente Galaxia Eterna" data-version="Personalizado $14.99">
+<form onsubmit="enviarDatos(event)" data-producto="La Imponente Galaxia Eterna">
+<div class="option-list">
+<label class="option-card">
+<input type="radio" name="opcion" value="Standard $9.99" data-paypal="https://www.paypal.com/ncp/payment/2RZGEZYSQ9FES" checked onchange="actualizarOpcionProducto(this.form)">
+<span><strong data-i18n="standardPrice">$9.99 - Versión Standard</strong><span data-i18n="standardNote">Plantilla lista para enviar (no personalizada)</span></span>
+</label>
+<label class="option-card">
+<input type="radio" name="opcion" value="Personalizado $14.99" data-paypal="https://www.paypal.com/ncp/payment/PV58FCGW4X9GN" onchange="actualizarOpcionProducto(this.form)">
+<span><strong data-i18n="customPrice">$14.99 Personalizado</strong><span data-i18n="customNote">Con nombre y sobrenombres especiales</span></span>
+</label>
+</div>
 <input type="text" name="cliente" placeholder="Tu nombre completo" data-i18n-placeholder="clientNamePlaceholder" required><br>
 <input type="email" name="correo" placeholder="Tu correo (el del pago)" data-i18n-placeholder="emailPlaceholder" required><br>
 <input type="tel" name="telefono" placeholder="Número de contacto (opcional)" data-i18n-placeholder="phonePlaceholder"><br>
+<div class="personalization-fields">
 <input type="text" name="nombre" placeholder="Nombre de la persona especial" data-i18n-placeholder="namePlaceholder" required><br>
 
 <input type="text" name="a1" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 1" data-i18n-placeholder="nickname1"><br>
@@ -495,7 +545,9 @@ Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>
 <input type="text" name="a3" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 3" data-i18n-placeholder="nickname3"><br>
 <input type="text" name="a4" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 4" data-i18n-placeholder="nickname4"><br>
 <input type="text" name="a5" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 5" data-i18n-placeholder="nickname5"><br>
+</div>
 
+<a class="button-link payment-choice-link" href="https://www.paypal.com/ncp/payment/2RZGEZYSQ9FES" target="_blank" data-i18n="paySelected">Pagar opción seleccionada 💳</a>
 <button type="submit" data-i18n="sendData">Enviar Datos 💖</button>
 </form>
 
@@ -598,13 +650,14 @@ standardNote: "Plantilla lista para enviar (no personalizada)",
 customPrice: "$14.99 Personalizado",
 customNote: "Con nombre y sobrenombres especiales",
 payNow: "Pagar ahora 💳",
+paySelected: "Pagar opción seleccionada 💳",
 customize: "Personalizar 💖",
 receiveTitle: "📦 ¿Qué recibes?",
-galaxy1Receive: "✔ Código HTML listo<br>✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú le llamas 😍<br>✔ Compatible con celular y PC<br>✔ Link para compartir<br>✔ Entrega en máximo 24h 💌",
-galaxy2Receive: "✔ Código HTML listo<br>✔ Animación premium<br>✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú le llamas 😍<br>✔ Link listo para enviar<br>✔ Entrega en máximo 24h 💌",
+galaxy1Receive: "✔ Versión Standard: plantilla lista para enviar, no personalizada<br>✔ Versión Personalizada: nombre y hasta 5 sobrenombres especiales 😍<br>✔ Compatible con celular y PC<br>✔ Link para compartir<br>✔ Entrega en máximo 24h 💌",
+galaxy2Receive: "✔ Versión Standard: plantilla lista para enviar, no personalizada<br>✔ Versión Personalizada: animación premium con nombre y hasta 5 sobrenombres especiales 😍<br>✔ Link listo para enviar<br>✔ Entrega en máximo 24h 💌",
 timerReceive: "✔ Cronómetro romántico<br>✔ Código HTML completo<br>✔ Listo para compartir<br>✔ Entrega en máximo 24h 💌",
 orderTitle: "📩 Enviar Datos del Pedido",
-orderWarning: "⚠️ Solo pedidos con pago verificado<br>Podemos solicitar comprobante de pago para validar la orden<br>El paquete se enviará al correo proporcionado en el formulario<br>Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>⏱️ Entrega en máximo 24 horas",
+orderWarning: "⚠️ Solo pedidos con pago verificado<br>Elige la versión que vas a comprar antes de enviar la orden<br>Podemos solicitar comprobante de pago para validar la orden<br>El paquete se enviará al correo proporcionado en el formulario<br>Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>⏱️ Entrega en máximo 24 horas",
 emailPlaceholder: "Tu correo (el del pago)",
 clientNamePlaceholder: "Tu nombre completo",
 phonePlaceholder: "Número de contacto (opcional)",
@@ -648,13 +701,14 @@ standardNote: "Ready-to-send template (not personalized)",
 customPrice: "$14.99 Personalized",
 customNote: "With name and special nicknames",
 payNow: "Pay now 💳",
+paySelected: "Pay selected option 💳",
 customize: "Customize 💖",
 receiveTitle: "📦 What do you receive?",
-galaxy1Receive: "✔ Ready HTML code<br>✔ Personalized with their name and up to 5 special nicknames only you two understand, or the unique way you call them 😍<br>✔ Compatible with phone and PC<br>✔ Shareable link<br>✔ Delivered within 24h 💌",
-galaxy2Receive: "✔ Ready HTML code<br>✔ Premium animation<br>✔ Personalized with their name and up to 5 special nicknames only you two understand, or the unique way you call them 😍<br>✔ Link ready to send<br>✔ Delivered within 24h 💌",
+galaxy1Receive: "✔ Standard Version: ready-to-send template, not personalized<br>✔ Personalized Version: name and up to 5 special nicknames 😍<br>✔ Compatible with phone and PC<br>✔ Shareable link<br>✔ Delivered within 24h 💌",
+galaxy2Receive: "✔ Standard Version: ready-to-send template, not personalized<br>✔ Personalized Version: premium animation with name and up to 5 special nicknames 😍<br>✔ Link ready to send<br>✔ Delivered within 24h 💌",
 timerReceive: "✔ Romantic timer<br>✔ Complete HTML code<br>✔ Ready to share<br>✔ Delivered within 24h 💌",
 orderTitle: "📩 Send Order Details",
-orderWarning: "⚠️ Only orders with verified payment<br>We may request proof of payment to validate the order<br>The package will be sent to the email provided in the form<br>Max. 5 nicknames (max. 2 words each)<br>⏱️ Delivered within 24 hours",
+orderWarning: "⚠️ Only orders with verified payment<br>Choose the version you are buying before sending the order<br>We may request proof of payment to validate the order<br>The package will be sent to the email provided in the form<br>Max. 5 nicknames (max. 2 words each)<br>⏱️ Delivered within 24 hours",
 emailPlaceholder: "Your email (the one used for payment)",
 clientNamePlaceholder: "Your full name",
 phonePlaceholder: "Contact number (optional)",
@@ -714,15 +768,39 @@ input.value = palabras.slice(0,2).join(" ");
 }
 }
 
+function actualizarOpcionProducto(form){
+let opcion = form.querySelector("input[name='opcion']:checked");
+let linkPago = form.querySelector(".payment-choice-link");
+let camposPersonalizacion = form.querySelector(".personalization-fields");
+let esPersonalizado = opcion && opcion.value.toLowerCase().includes("personalizado");
+
+if(linkPago && opcion){
+linkPago.href = opcion.dataset.paypal;
+}
+
+if(camposPersonalizacion){
+camposPersonalizacion.style.display = esPersonalizado ? "block" : "none";
+camposPersonalizacion.querySelectorAll("input").forEach((input) => {
+input.required = esPersonalizado && input.name === "nombre";
+if(!esPersonalizado){
+input.value = "";
+}
+});
+}
+}
+
 function enviarDatos(e){
 e.preventDefault();
 
 let form = e.target;
 let producto = form.dataset.producto || "Detalle digital Innova Furniture";
-let version = form.dataset.version || "Personalizado";
+let opcion = form.querySelector("input[name='opcion']:checked");
+let version = opcion ? opcion.value : "Opción no indicada";
+let linkPago = opcion ? opcion.dataset.paypal : "No indicado";
 let cliente = form.elements["cliente"].value;
 let correo = form.elements["correo"].value;
 let telefono = form.elements["telefono"].value || "No indicado";
+let esPersonalizado = version.toLowerCase().includes("personalizado");
 let nombre = form.elements["nombre"].value;
 
 let apodos = [
@@ -845,10 +923,13 @@ e.preventDefault();
 
 let form = e.target;
 let producto = form.dataset.producto || "Detalle digital Innova Furniture";
-let version = form.dataset.version || "Personalizado";
+let opcion = form.querySelector("input[name='opcion']:checked");
+let version = opcion ? opcion.value : "Opción no indicada";
+let linkPago = opcion ? opcion.dataset.paypal : "No indicado";
 let cliente = form.elements["cliente"].value;
 let correo = form.elements["correo"].value;
 let telefono = form.elements["telefono"].value || "No indicado";
+let esPersonalizado = version.toLowerCase().includes("personalizado");
 let nombre = form.elements["nombre"].value;
 
 let apodos = [
@@ -865,8 +946,12 @@ version: version,
 cliente: cliente,
 correo: correo,
 telefono: telefono,
-detalles: "Nombre de la persona especial: " + nombre + "\n" +
-"Sobrenombres: " + (apodos.length ? apodos.join(", ") : "No indicados")
+detalles: esPersonalizado
+? "Nombre de la persona especial: " + nombre + "\n" +
+"Sobrenombres: " + (apodos.length ? apodos.join(", ") : "No indicados") + "\n" +
+"Link de pago seleccionado: " + linkPago
+: "Versión standard seleccionada. No requiere personalización.\n" +
+"Link de pago seleccionado: " + linkPago
 };
 
 data.mensaje = crearResumenOrden(data);
@@ -895,6 +980,10 @@ detalles: "Este producto no requiere nombre ni sobrenombres para personalizacion
 data.mensaje = crearResumenOrden(data);
 enviarOrdenDirecta(form, data);
 }
+
+document.querySelectorAll("form[data-producto]").forEach((form) => {
+actualizarOpcionProducto(form);
+});
 
 // 🔥 CONTADOR (YA DENTRO DEL SCRIPT)
 function randomCounter(){
