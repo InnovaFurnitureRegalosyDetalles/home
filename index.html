@@ -6,32 +6,312 @@
 <title>Innova Furniture | Regalos y Detalles</title>
 
 <style>
+:root{
+--bg:#030504;
+--panel:#0b1110;
+--panel-2:#101817;
+--gold:#d6b45f;
+--gold-bright:#f2d890;
+--gold-soft:rgba(214,180,95,.16);
+--emerald:#0f6b4f;
+--emerald-bright:#23a173;
+--blue-black:#07131f;
+--text:#fff8e8;
+--muted:#b8b2a5;
+--line:rgba(214,180,95,.18);
+}
+*{box-sizing:border-box}
 body{
 margin:0;
-font-family:'Segoe UI',sans-serif;
-background: radial-gradient(circle at top, #111 0%, #0a0a0a 60%, #000 100%);
+font-family:'Segoe UI',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+background:
+radial-gradient(circle at 10% 0%, rgba(15,107,79,.28), transparent 34%),
+radial-gradient(circle at 88% 4%, rgba(7,19,31,.58), transparent 34%),
+linear-gradient(180deg,#07110e 0%,#030504 48%,#000 100%);
+color:var(--text);
+text-align:center;
+overflow-x:hidden;
+}
+body:before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+background-image:
+linear-gradient(rgba(214,180,95,.055) 1px, transparent 1px),
+linear-gradient(90deg, rgba(214,180,95,.04) 1px, transparent 1px),
+linear-gradient(rgba(15,107,79,.045) 1px, transparent 1px),
+linear-gradient(90deg, rgba(15,107,79,.035) 1px, transparent 1px);
+background-size:96px 96px,96px 96px,24px 24px,24px 24px;
+background-position:center top;
+opacity:.72;
+mask-image:linear-gradient(to bottom, black 0%, rgba(0,0,0,.72) 46%, transparent 88%);
+}
+.topbar{
+position:sticky;
+top:0;
+z-index:10;
+background:rgba(0,0,0,.78);
+backdrop-filter:blur(16px);
+color:var(--gold-bright);
+padding:11px 14px;
+border-bottom:1px solid rgba(214,180,95,.38);
+font-size:.9em;
+}
+.language-switch{
+position:relative;
+z-index:12;
+display:flex;
+gap:4px;
+width:max-content;
+margin:14px auto 0;
+padding:5px;
+border:1px solid rgba(214,180,95,.34);
+border-radius:999px;
+background:rgba(0,0,0,.72);
+backdrop-filter:blur(14px);
+box-shadow:0 12px 30px rgba(0,0,0,.32);
+}
+.lang-btn{
+display:block;
+width:auto;
+min-width:44px;
+padding:8px 10px;
+border-radius:999px;
+background:transparent;
+color:#f2d890;
+box-shadow:none;
+font-size:.78rem;
+}
+.lang-btn:hover{
+transform:none;
+box-shadow:none;
+}
+.lang-btn.active{
+background:gold;
+color:#050503;
+}
+.hero{
+max-width:1040px;
+margin:0 auto;
+padding:34px 18px 16px;
+}
+.logo{
+font-size:clamp(2.15rem,6vw,4.6rem);
+line-height:.95;
+color:var(--gold-bright);
+margin:18px 0 10px;
+letter-spacing:1px;
+font-weight:900;
+text-shadow:0 0 28px rgba(214,180,95,.22);
+}
+.sub{
 color:white;
+font-size:clamp(1.05rem,2.8vw,1.45rem);
+font-weight:700;
+}
+.pill-row{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+margin:22px auto 10px;
+max-width:760px;
+}
+.pill{
+border:1px solid rgba(214,180,95,.38);
+background:linear-gradient(180deg,rgba(214,180,95,.09),rgba(15,107,79,.08));
+color:#f6e8bd;
+padding:9px 13px;
+border-radius:999px;
+font-size:.9rem;
+}
+.recuerda{
+text-transform:uppercase;
+font-weight:800;
+color:#d8bd76;
+opacity:.9;
+max-width:930px;
+margin:22px auto 0;
+font-size:.9rem;
+line-height:1.55;
+}
+.hero-copy{
+max-width:760px;
+margin:18px auto;
+color:#e6c978;
+font-weight:700;
+line-height:1.55;
+}
+.container{
+max-width:1080px;
+margin:auto;
+padding:18px;
+}
+.card{
+position:relative;
+overflow:hidden;
+background:linear-gradient(145deg,rgba(214,180,95,.075),rgba(15,107,79,.045) 48%,rgba(255,255,255,.018));
+padding:clamp(20px,4vw,34px);
+margin:24px 0;
+border-radius:8px;
+border:1px solid var(--line);
+box-shadow:0 18px 55px rgba(0,0,0,.46);
+}
+.card:after{
+content:"";
+position:absolute;
+inset:0;
+pointer-events:none;
+border-top:1px solid rgba(255,255,255,.16);
+}
+.feature-card{
+background:
+linear-gradient(145deg,rgba(15,107,79,.2),rgba(214,180,95,.08)),
+rgba(10,16,15,.94);
+}
+.product-grid{
+display:grid;
+grid-template-columns:minmax(220px,330px) 1fr;
+gap:clamp(18px,4vw,34px);
+align-items:start;
+text-align:left;
+}
+.product-copy h2,.card h2{
+margin-top:0;
+font-size:clamp(1.45rem,3.5vw,2.15rem);
+line-height:1.15;
+}
+.product-copy p,.card p{
+line-height:1.6;
+}
+.video-vertical{
+width:100%;
+max-width:310px;
+height:520px;
+object-fit:cover;
+border-radius:8px;
+border:2px solid rgba(214,180,95,.78);
+margin:0 auto;
+display:block;
+box-shadow:0 20px 50px rgba(0,0,0,.42),0 0 0 1px rgba(15,107,79,.24);
+background:#000;
+}
+.product-image{
+width:100%;
+max-width:310px;
+border-radius:8px;
+border:2px solid rgba(214,180,95,.78);
+box-shadow:0 20px 50px rgba(0,0,0,.42),0 0 0 1px rgba(15,107,79,.24);
+display:block;
+margin:0 auto;
+}
+.media-wrap{text-align:center}
+.price{
+color:var(--gold);
+font-size:1.35em;
+margin:18px 0 8px;
+font-weight:900;
+}
+.button-row{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:12px;
+margin:12px 0 18px;
+}
+a{text-decoration:none}
+button,
+.button-link{
+display:block;
+background:gold;
+color:#050503;
+border:none;
+padding:13px 18px;
+border-radius:8px;
+cursor:pointer;
+margin:0;
+font-weight:900;
+width:100%;
+box-shadow:0 12px 28px rgba(245,200,75,.18);
+transition:transform .18s ease, box-shadow .18s ease;
+text-align:center;
+position:relative;
+z-index:2;
+}
+button:hover,
+.button-link:hover{
+transform:translateY(-2px);
+box-shadow:0 18px 34px rgba(245,200,75,.24);
+}
+input{
+width:100%;
+padding:13px 14px;
+margin:6px 0;
+border-radius:8px;
+border:1px solid rgba(255,255,255,.12);
+background:rgba(1,5,4,.58);
+color:white;
+outline:none;
+}
+input:focus{
+border-color:var(--gold);
+box-shadow:0 0 0 3px rgba(214,180,95,.14);
+}
+input::placeholder{color:#918ca2}
+.construction{
+border:1px dashed rgba(214,180,95,.55);
+padding:25px;
+margin:20px 0;
+border-radius:8px;
+background:rgba(15,107,79,.06);
+}
+.highlight{
+color:#facc15;
+font-weight:700;
+}
+.small{color:var(--muted);font-size:.92em}
+.sound-hint{font-size:.82em;color:var(--muted);margin-top:10px;margin-bottom:0}
+.receive-box{
+background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(7,19,31,.18));
+border:1px solid rgba(214,180,95,.16);
+border-radius:8px;
+padding:16px;
+margin-top:18px;
+}
+.receive-box h3{margin-top:0}
+.order-panel{
+margin-top:18px;
+padding:18px;
+border-radius:8px;
+background:linear-gradient(145deg,rgba(15,107,79,.2),rgba(7,19,31,.24),rgba(214,180,95,.055));
+border:1px solid rgba(214,180,95,.2);
+text-align:left;
+}
+.order-panel h3{
+margin:0 0 8px;
 text-align:center;
 }
-.topbar{background:#000;color:gold;padding:10px;border-bottom:1px solid gold;font-size:.9em}
-.logo{font-size:2.3em;color:gold;margin-top:25px;letter-spacing:2px}
-.sub{color:#ccc}
-.container{max-width:900px;margin:auto;padding:20px}
-.card{background:#111;padding:25px;margin:25px 0;border-radius:15px;border:1px solid rgba(255,215,0,.3)}
-.video-vertical{width:100%;max-width:300px;height:520px;object-fit:cover;border-radius:15px;border:2px solid gold;margin:15px auto;display:block}
-.price{color:gold;font-size:1.5em;margin:10px 0}
-button{background:gold;color:black;border:none;padding:12px 18px;border-radius:10px;cursor:pointer;margin:5px;font-weight:bold;width:80%}
-input{width:80%;padding:10px;margin:5px;border-radius:8px;border:none}
-.construction{border:2px dashed gold;padding:25px;margin:20px 0;border-radius:15px;background:#111}
-.highlight{color:#facc15}
-.small{color:#bbb;font-size:.9em}
-.sound-hint{font-size:.8em;color:#bbb;margin-top:-10px;margin-bottom:10px}
-.recuerda{
-text-transform: uppercase;
-font-weight: bold;
-color:#d4af37;
-opacity:0.75;
-margin-top:10px;
+.order-panel button{margin-top:8px}
+.footer{
+margin-top:40px;
+padding:22px;
+color:#888;
+font-size:.8em;
+border-top:1px solid rgba(255,215,0,.2);
+}
+
+@media (max-width:760px){
+.product-grid{grid-template-columns:1fr;text-align:center}
+.product-copy{text-align:center}
+.button-row{grid-template-columns:1fr}
+.video-vertical{height:500px}
+.hero{padding-top:24px}
+}
+@media (max-width:420px){
+.container{padding:12px}
+.card{padding:18px 14px}
+.video-vertical{height:460px}
+.pill{font-size:.82rem}
 }
 </style>
 
@@ -40,35 +320,47 @@ margin-top:10px;
 <body>
 
 <div class="topbar">
-💳 Pagos seguros con PayPal | innovafurniture.shop@gmail.com
+<span data-i18n="topbar">💳 Pagos seguros con PayPal | innovafurniture.shop@gmail.com</span>
 </div>
 
-<div class="logo">INNOVA FURNITURE</div>
-<div class="sub">Regalos y Detalles que enamoran 😍😍😍🎁</div>
+<div class="language-switch" aria-label="Idioma">
+<button class="lang-btn active" type="button" data-lang="es" onclick="setLanguage('es')">ES</button>
+<button class="lang-btn" type="button" data-lang="en" onclick="setLanguage('en')">EN</button>
+</div>
 
-<p class="recuerda">
+<section class="hero">
+<div class="logo">INNOVA FURNITURE</div>
+<div class="sub" data-i18n="sub">Regalos y Detalles que enamoran 😍😍😍🎁</div>
+
+<div class="pill-row">
+<span class="pill" data-i18n="pillDelivery">Entrega en máximo 24h</span>
+<span class="pill" data-i18n="pillPremium">Detalles digitales premium</span>
+<span class="pill" data-i18n="pillShare">Listo para compartir</span>
+</div>
+
+<p class="recuerda" data-i18n="remember">
 RECUERDA QUE NUESTROS DETALLES ESTÁN DISPONIBLES EN FORMATO MASCULINO Y FEMENINO, DISEÑADOS PARA ADAPTARSE PERFECTAMENTE A QUIEN DESEAS SORPRENDER.
 </p>
 
-<p style="max-width:700px;margin:15px auto;color:#facc15;">
-Se trata de una tienda online Premium certificada ⭐⭐⭐⭐⭐ sólo para personas exclusivas ©  
+<p class="hero-copy" data-i18n="premiumStore">
+Se trata de una tienda online Premium certificada ⭐⭐⭐⭐⭐ sólo para personas exclusivas ©
 </p>
 
 <!-- CONTADOR DINÁMICO -->
-<p style="max-width:700px;margin:15px auto;color:#facc15;">
-🛍️ <span id="liveCount">12</span> personas están hablando de este producto ahora 📱⚡🔥
+<p class="hero-copy"><span data-i18n="livePrefix">🛍️</span> <span id="liveCount">12</span> <span data-i18n="liveSuffix">personas están hablando de este producto ahora 📱⚡🔥</span>
 </p>
+</section>
 
 <div class="container">
 
-<p style="max-width:700px;margin:15px auto;color:#facc15;">
+<p class="hero-copy" data-i18n="intro">
 ✨ Creamos detalles digitales únicos que convierten momentos en recuerdos inolvidables 💖
 </p>
 
-<div class="card">
-<h2>💖 No es un regalo… es una experiencia</h2>
-<p>Sorprende con algo único, emocional e inolvidable ✨</p>
-<p class="highlight">
+<div class="card feature-card">
+<h2 data-i18n="experienceTitle">💖 No es un regalo… es una experiencia</h2>
+<p data-i18n="experienceText">Sorprende con algo único, emocional e inolvidable ✨</p>
+<p class="highlight" data-i18n="experienceBullets">
 ⚡ Entrega en máximo 24 horas<br>
 📱 Listo para enviar desde tu celular
 </p>
@@ -76,26 +368,35 @@ Se trata de una tienda online Premium certificada ⭐⭐⭐⭐⭐ sólo para per
 
 <!-- GALAXIA 1 -->
 <div class="card">
-<h2>🌌 La Majestuosa Galaxia del Amor</h2>
+<div class="product-grid">
+<div class="media-wrap">
 <video class="video-vertical" autoplay muted loop playsinline preload="metadata" controls>
 <source src="galaxia1.mp4" type="video/mp4">
 </video>
-<p class="sound-hint">🔊 Incluye sonido. Toca el video para activarlo.</p>
+<p class="sound-hint" data-i18n="soundHint">🔊 Incluye sonido. Toca el video para activarlo.</p>
+</div>
 
-<div class="price">$9.99 - Versión Standard</div>
-<p class="small">Plantilla lista para enviar (no personalizada)</p>
+<div class="product-copy">
+<h2>🌌 La Majestuosa Galaxia del Amor</h2>
+<p data-i18n="galaxy1Description">Una experiencia digital romántica para mandar directo por mensaje y causar ese efecto de “wow, esto sí pensó en mí”.</p>
 
-<a href="https://www.paypal.com/ncp/payment/8DLWACR23MNNE" target="_blank">
-<button>Pagar ahora 💳</button>
-</a>
+<div class="button-row">
+<div>
+<div class="price" data-i18n="standardPrice">$9.99 - Versión Standard</div>
+<p class="small" data-i18n="standardNote">Plantilla lista para enviar (no personalizada)</p>
+<a class="button-link" href="https://www.paypal.com/ncp/payment/8DLWACR23MNNE" target="_blank" data-i18n="payNow">Pagar ahora 💳</a>
+</div>
 
-<div class="price">$14.99 Personalizado</div>
-<a href="https://www.paypal.com/ncp/payment/GEQBP3VEM6D3S" target="_blank">
-<button>Personalizar 💖</button>
-</a>
+<div>
+<div class="price" data-i18n="customPrice">$14.99 Personalizado</div>
+<p class="small" data-i18n="customNote">Con nombre y sobrenombres especiales</p>
+<a class="button-link" href="https://www.paypal.com/ncp/payment/GEQBP3VEM6D3S" target="_blank" data-i18n="customize">Personalizar 💖</a>
+</div>
+</div>
 
-<h3>📦 ¿Qué recibes?</h3>
-<p>
+<div class="receive-box">
+<h3 data-i18n="receiveTitle">📦 ¿Qué recibes?</h3>
+<p data-i18n="galaxy1Receive">
 ✔ Código HTML listo<br>
 ✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú le llamas 😍<br>
 ✔ Compatible con celular y PC<br>
@@ -104,28 +405,69 @@ Se trata de una tienda online Premium certificada ⭐⭐⭐⭐⭐ sólo para per
 </p>
 </div>
 
+<div class="order-panel">
+<h3 data-i18n="orderTitle">📩 Enviar Datos del Pedido</h3>
+<p class="highlight" data-i18n="orderWarning">
+⚠️ Solo pedidos con pago verificado<br>
+Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>
+⏱️ Entrega en máximo 24 horas
+</p>
+
+<form onsubmit="enviarDatos(event)" data-producto="La Majestuosa Galaxia del Amor" data-version="Personalizado $14.99">
+<input type="text" name="cliente" placeholder="Tu nombre completo" data-i18n-placeholder="clientNamePlaceholder" required><br>
+<input type="email" name="correo" placeholder="Tu correo (el del pago)" data-i18n-placeholder="emailPlaceholder" required><br>
+<input type="tel" name="telefono" placeholder="Número de contacto (opcional)" data-i18n-placeholder="phonePlaceholder"><br>
+<input type="text" name="nombre" placeholder="Nombre de la persona especial" data-i18n-placeholder="namePlaceholder" required><br>
+
+<input type="text" name="a1" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 1" data-i18n-placeholder="nickname1"><br>
+<input type="text" name="a2" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 2" data-i18n-placeholder="nickname2"><br>
+<input type="text" name="a3" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 3" data-i18n-placeholder="nickname3"><br>
+<input type="text" name="a4" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 4" data-i18n-placeholder="nickname4"><br>
+<input type="text" name="a5" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 5" data-i18n-placeholder="nickname5"><br>
+
+<button type="submit" data-i18n="sendData">Enviar Datos 💖</button>
+</form>
+
+<p class="small" data-i18n="manualEmail">
+📧 Envío manual recomendado (respuesta más rápida ⚡)<br>
+innovafurniture.shop@gmail.com
+</p>
+</div>
+</div>
+</div>
+</div>
+
 <!-- GALAXIA 2 -->
 <div class="card">
-<h2>🌌 La Imponente Galaxia Eterna</h2>
+<div class="product-grid">
+<div class="media-wrap">
 <video class="video-vertical" autoplay muted loop playsinline preload="metadata" controls>
 <source src="galaxia2.mp4" type="video/mp4">
 </video>
-<p class="sound-hint">🔊 Incluye sonido. Toca el video para activarlo.</p>
+<p class="sound-hint" data-i18n="soundHint">🔊 Incluye sonido. Toca el video para activarlo.</p>
+</div>
 
-<div class="price">$9.99 - Versión Standard</div>
-<p class="small">Plantilla lista para enviar (no personalizada)</p>
+<div class="product-copy">
+<h2>🌌 La Imponente Galaxia Eterna</h2>
+<p data-i18n="galaxy2Description">Una animación premium con vibra intensa, elegante y lista para sorprender sin parecer el típico detalle de siempre.</p>
 
-<a href="https://www.paypal.com/ncp/payment/2RZGEZYSQ9FES" target="_blank">
-<button>Pagar ahora 💳</button>
-</a>
+<div class="button-row">
+<div>
+<div class="price" data-i18n="standardPrice">$9.99 - Versión Standard</div>
+<p class="small" data-i18n="standardNote">Plantilla lista para enviar (no personalizada)</p>
+<a class="button-link" href="https://www.paypal.com/ncp/payment/2RZGEZYSQ9FES" target="_blank" data-i18n="payNow">Pagar ahora 💳</a>
+</div>
 
-<div class="price">$14.99 Personalizado</div>
-<a href="https://www.paypal.com/ncp/payment/PV58FCGW4X9GN" target="_blank">
-<button>Personalizar 💖</button>
-</a>
+<div>
+<div class="price" data-i18n="customPrice">$14.99 Personalizado</div>
+<p class="small" data-i18n="customNote">Con nombre y sobrenombres especiales</p>
+<a class="button-link" href="https://www.paypal.com/ncp/payment/PV58FCGW4X9GN" target="_blank" data-i18n="customize">Personalizar 💖</a>
+</div>
+</div>
 
-<h3>📦 ¿Qué recibes?</h3>
-<p>
+<div class="receive-box">
+<h3 data-i18n="receiveTitle">📦 ¿Qué recibes?</h3>
+<p data-i18n="galaxy2Receive">
 ✔ Código HTML listo<br>
 ✔ Animación premium<br>
 ✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú le llamas 😍<br>
@@ -134,18 +476,54 @@ Se trata de una tienda online Premium certificada ⭐⭐⭐⭐⭐ sólo para per
 </p>
 </div>
 
+<div class="order-panel">
+<h3 data-i18n="orderTitle">📩 Enviar Datos del Pedido</h3>
+<p class="highlight" data-i18n="orderWarning">
+⚠️ Solo pedidos con pago verificado<br>
+Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>
+⏱️ Entrega en máximo 24 horas
+</p>
+
+<form onsubmit="enviarDatos(event)" data-producto="La Imponente Galaxia Eterna" data-version="Personalizado $14.99">
+<input type="text" name="cliente" placeholder="Tu nombre completo" data-i18n-placeholder="clientNamePlaceholder" required><br>
+<input type="email" name="correo" placeholder="Tu correo (el del pago)" data-i18n-placeholder="emailPlaceholder" required><br>
+<input type="tel" name="telefono" placeholder="Número de contacto (opcional)" data-i18n-placeholder="phonePlaceholder"><br>
+<input type="text" name="nombre" placeholder="Nombre de la persona especial" data-i18n-placeholder="namePlaceholder" required><br>
+
+<input type="text" name="a1" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 1" data-i18n-placeholder="nickname1"><br>
+<input type="text" name="a2" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 2" data-i18n-placeholder="nickname2"><br>
+<input type="text" name="a3" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 3" data-i18n-placeholder="nickname3"><br>
+<input type="text" name="a4" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 4" data-i18n-placeholder="nickname4"><br>
+<input type="text" name="a5" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 5" data-i18n-placeholder="nickname5"><br>
+
+<button type="submit" data-i18n="sendData">Enviar Datos 💖</button>
+</form>
+
+<p class="small" data-i18n="manualEmail">
+📧 Envío manual recomendado (respuesta más rápida ⚡)<br>
+innovafurniture.shop@gmail.com
+</p>
+</div>
+</div>
+</div>
+</div>
+
 <!-- CRONOMETRO -->
 <div class="card">
+<div class="product-grid">
+<div class="media-wrap">
+<img src="cronometro.jpg" class="product-image">
+</div>
+
+<div class="product-copy">
 <h2>⏳ Cronómetro del Amor con Tulipanes 🌷</h2>
-<img src="cronometro.jpg" style="width:60%;max-width:300px;border-radius:15px;border:2px solid gold;">
 
 <div class="price">$9.99</div>
-<a href="https://www.paypal.com/ncp/payment/QBGLHE23VPNB6" target="_blank">
-<button>Pagar ahora 💳</button>
-</a>
+<a class="button-link" href="https://www.paypal.com/ncp/payment/QBGLHE23VPNB6" target="_blank" data-i18n="payNow">Pagar ahora 💳</a>
 
-<h3>📦 ¿Qué recibes?</h3>
-<p>
+<div class="receive-box">
+<h3 data-i18n="receiveTitle">📦 ¿Qué recibes?</h3>
+<p data-i18n="timerReceive">
 ✔ Cronómetro romántico<br>
 ✔ Código HTML completo<br>
 ✔ Listo para compartir<br>
@@ -153,47 +531,182 @@ Se trata de una tienda online Premium certificada ⭐⭐⭐⭐⭐ sólo para per
 </p>
 </div>
 
-<div class="card">
-<h2>📩 Enviar Datos del Pedido</h2>
-
-<p class="highlight">
+<div class="order-panel">
+<h3 data-i18n="contactEmailTitle">📩 Correo de Contacto</h3>
+<p class="highlight" data-i18n="contactEmailWarning">
 ⚠️ Solo pedidos con pago verificado<br>
-Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>
+Preferible usar el mismo correo con el que hiciste el pago<br>
 ⏱️ Entrega en máximo 24 horas
 </p>
 
-<form onsubmit="enviarDatos(event)">
-<input type="email" id="correo" placeholder="Tu correo (el del pago)" required><br>
-<input type="text" id="nombre" placeholder="Nombre de la chica" required><br>
-
-<input type="text" id="a1" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 1"><br>
-<input type="text" id="a2" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 2"><br>
-<input type="text" id="a3" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 3"><br>
-<input type="text" id="a4" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 4"><br>
-<input type="text" id="a5" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 5"><br>
-
-<button type="submit">Enviar Datos 💖</button>
+<form onsubmit="enviarCorreoCronometro(event)" data-producto="Cronómetro del Amor con Tulipanes" data-version="Standard $9.99">
+<input type="text" name="clienteCronometro" placeholder="Tu nombre completo" data-i18n-placeholder="clientNamePlaceholder" required><br>
+<input type="email" name="correoCronometro" placeholder="Tu correo (preferible el del pago)" data-i18n-placeholder="timerEmailPlaceholder" required><br>
+<input type="tel" name="telefonoCronometro" placeholder="Número de contacto (opcional)" data-i18n-placeholder="phonePlaceholder"><br>
+<button type="submit" data-i18n="sendEmail">Enviar Correo 💳</button>
 </form>
 
-<p class="small">
+<p class="small" data-i18n="manualEmail">
 📧 Envío manual recomendado (respuesta más rápida ⚡)<br>
 innovafurniture.shop@gmail.com
 </p>
 </div>
-
-<div class="construction">
-<h2>🚧 Próximamente</h2>
-<p>Nuevos detalles digitales en desarrollo 💖</p>
+</div>
+</div>
 </div>
 
 <div class="construction">
-<h2>✨ Nuevas Experiencias</h2>
-<p>Próximos lanzamientos exclusivos</p>
+<h2 data-i18n="comingSoonTitle">🚧 Próximamente</h2>
+<p data-i18n="comingSoonText">Nuevos detalles digitales en desarrollo 💖</p>
+</div>
+
+<div class="construction">
+<h2 data-i18n="newExperiencesTitle">✨ Nuevas Experiencias</h2>
+<p data-i18n="newExperiencesText">Próximos lanzamientos exclusivos</p>
 </div>
 
 </div>
 
 <script>
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbycN5X_dU7p97yjTrl98rbz7IB0CQ-feuO9YpFvCC2hbWaX-IEWecCTulYEvIAQdFu5Mg/exec";
+
+let currentLang = "es";
+try{
+currentLang = localStorage.getItem("innovaLang") || "es";
+}catch(error){}
+
+const translations = {
+es: {
+topbar: "💳 Pagos seguros con PayPal | innovafurniture.shop@gmail.com",
+sub: "Regalos y Detalles que enamoran 😍😍😍🎁",
+pillDelivery: "Entrega en máximo 24h",
+pillPremium: "Detalles digitales premium",
+pillShare: "Listo para compartir",
+remember: "RECUERDA QUE NUESTROS DETALLES ESTÁN DISPONIBLES EN FORMATO MASCULINO Y FEMENINO, DISEÑADOS PARA ADAPTARSE PERFECTAMENTE A QUIEN DESEAS SORPRENDER.",
+premiumStore: "Se trata de una tienda online Premium certificada ⭐⭐⭐⭐⭐ sólo para personas exclusivas ©",
+livePrefix: "🛍️",
+liveSuffix: "personas están hablando de este producto ahora 📱⚡🔥",
+intro: "✨ Creamos detalles digitales únicos que convierten momentos en recuerdos inolvidables 💖",
+experienceTitle: "💖 No es un regalo… es una experiencia",
+experienceText: "Sorprende con algo único, emocional e inolvidable ✨",
+experienceBullets: "⚡ Entrega en máximo 24 horas<br>📱 Listo para enviar desde tu celular",
+soundHint: "🔊 Incluye sonido. Toca el video para activarlo.",
+galaxy1Description: "Una experiencia digital romántica para mandar directo por mensaje y causar ese efecto de “wow, esto sí pensó en mí”.",
+galaxy2Description: "Una animación premium con vibra intensa, elegante y lista para sorprender sin parecer el típico detalle de siempre.",
+standardPrice: "$9.99 - Versión Standard",
+standardNote: "Plantilla lista para enviar (no personalizada)",
+customPrice: "$14.99 Personalizado",
+customNote: "Con nombre y sobrenombres especiales",
+payNow: "Pagar ahora 💳",
+customize: "Personalizar 💖",
+receiveTitle: "📦 ¿Qué recibes?",
+galaxy1Receive: "✔ Código HTML listo<br>✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú le llamas 😍<br>✔ Compatible con celular y PC<br>✔ Link para compartir<br>✔ Entrega en máximo 24h 💌",
+galaxy2Receive: "✔ Código HTML listo<br>✔ Animación premium<br>✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú le llamas 😍<br>✔ Link listo para enviar<br>✔ Entrega en máximo 24h 💌",
+timerReceive: "✔ Cronómetro romántico<br>✔ Código HTML completo<br>✔ Listo para compartir<br>✔ Entrega en máximo 24h 💌",
+orderTitle: "📩 Enviar Datos del Pedido",
+orderWarning: "⚠️ Solo pedidos con pago verificado<br>Podemos solicitar comprobante de pago para validar la orden<br>El paquete se enviará al correo proporcionado en el formulario<br>Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>⏱️ Entrega en máximo 24 horas",
+emailPlaceholder: "Tu correo (el del pago)",
+clientNamePlaceholder: "Tu nombre completo",
+phonePlaceholder: "Número de contacto (opcional)",
+namePlaceholder: "Nombre de la persona especial",
+nickname1: "Sobrenombre 1",
+nickname2: "Sobrenombre 2",
+nickname3: "Sobrenombre 3",
+nickname4: "Sobrenombre 4",
+nickname5: "Sobrenombre 5",
+sendData: "Enviar Datos 💖",
+manualEmail: "📧 Envío manual recomendado (respuesta más rápida ⚡)<br>innovafurniture.shop@gmail.com",
+contactEmailTitle: "📩 Correo de Contacto",
+contactEmailWarning: "⚠️ Solo pedidos con pago verificado<br>Podemos solicitar comprobante de pago para validar la orden<br>El paquete se enviará al correo proporcionado en el formulario<br>Preferible usar el mismo correo con el que hiciste el pago<br>⏱️ Entrega en máximo 24 horas",
+timerEmailPlaceholder: "Tu correo (preferible el del pago)",
+sendEmail: "Enviar Resumen 💳",
+comingSoonTitle: "🚧 Próximamente",
+comingSoonText: "Nuevos detalles digitales en desarrollo 💖",
+newExperiencesTitle: "✨ Nuevas Experiencias",
+newExperiencesText: "Próximos lanzamientos exclusivos",
+footer: "© 2026 Innova Furniture – Regalos y Detalles. Todos los derechos reservados.<br>Queda prohibida la reproducción total o parcial sin autorización."
+},
+en: {
+topbar: "💳 Secure PayPal payments | innovafurniture.shop@gmail.com",
+sub: "Digital gifts and romantic details that make them fall in love 😍😍😍🎁",
+pillDelivery: "Delivered within 24h",
+pillPremium: "Premium digital details",
+pillShare: "Ready to share",
+remember: "REMEMBER: OUR DETAILS ARE AVAILABLE IN MASCULINE AND FEMININE FORMATS, DESIGNED TO PERFECTLY MATCH THE PERSON YOU WANT TO SURPRISE.",
+premiumStore: "This is a certified premium online shop ⭐⭐⭐⭐⭐ made only for exclusive people ©",
+livePrefix: "🛍️",
+liveSuffix: "people are talking about this product right now 📱⚡🔥",
+intro: "✨ We create unique digital details that turn moments into unforgettable memories 💖",
+experienceTitle: "💖 It is not just a gift… it is an experience",
+experienceText: "Surprise them with something unique, emotional, and unforgettable ✨",
+experienceBullets: "⚡ Delivered within 24 hours<br>📱 Ready to send from your phone",
+soundHint: "🔊 Includes sound. Tap the video to activate it.",
+galaxy1Description: "A romantic digital experience made to send by message and create that “wow, they really thought of me” feeling.",
+galaxy2Description: "A premium animation with an intense, elegant vibe, ready to surprise without feeling like the usual gift.",
+standardPrice: "$9.99 - Standard Version",
+standardNote: "Ready-to-send template (not personalized)",
+customPrice: "$14.99 Personalized",
+customNote: "With name and special nicknames",
+payNow: "Pay now 💳",
+customize: "Customize 💖",
+receiveTitle: "📦 What do you receive?",
+galaxy1Receive: "✔ Ready HTML code<br>✔ Personalized with their name and up to 5 special nicknames only you two understand, or the unique way you call them 😍<br>✔ Compatible with phone and PC<br>✔ Shareable link<br>✔ Delivered within 24h 💌",
+galaxy2Receive: "✔ Ready HTML code<br>✔ Premium animation<br>✔ Personalized with their name and up to 5 special nicknames only you two understand, or the unique way you call them 😍<br>✔ Link ready to send<br>✔ Delivered within 24h 💌",
+timerReceive: "✔ Romantic timer<br>✔ Complete HTML code<br>✔ Ready to share<br>✔ Delivered within 24h 💌",
+orderTitle: "📩 Send Order Details",
+orderWarning: "⚠️ Only orders with verified payment<br>We may request proof of payment to validate the order<br>The package will be sent to the email provided in the form<br>Max. 5 nicknames (max. 2 words each)<br>⏱️ Delivered within 24 hours",
+emailPlaceholder: "Your email (the one used for payment)",
+clientNamePlaceholder: "Your full name",
+phonePlaceholder: "Contact number (optional)",
+namePlaceholder: "Special person's name",
+nickname1: "Nickname 1",
+nickname2: "Nickname 2",
+nickname3: "Nickname 3",
+nickname4: "Nickname 4",
+nickname5: "Nickname 5",
+sendData: "Send Details 💖",
+manualEmail: "📧 Manual email recommended (faster response ⚡)<br>innovafurniture.shop@gmail.com",
+contactEmailTitle: "📩 Contact Email",
+contactEmailWarning: "⚠️ Only orders with verified payment<br>We may request proof of payment to validate the order<br>The package will be sent to the email provided in the form<br>Preferably use the same email used for payment<br>⏱️ Delivered within 24 hours",
+timerEmailPlaceholder: "Your email (preferably the payment email)",
+sendEmail: "Send Summary 💳",
+comingSoonTitle: "🚧 Coming Soon",
+comingSoonText: "New digital details in development 💖",
+newExperiencesTitle: "✨ New Experiences",
+newExperiencesText: "Upcoming exclusive releases",
+footer: "© 2026 Innova Furniture – Digital Gifts and Details. All rights reserved.<br>Total or partial reproduction without authorization is prohibited."
+}
+};
+
+function setLanguage(lang){
+currentLang = translations[lang] ? lang : "es";
+try{
+localStorage.setItem("innovaLang", currentLang);
+}catch(error){}
+document.documentElement.lang = currentLang;
+document.querySelectorAll("[data-i18n]").forEach((element) => {
+let key = element.getAttribute("data-i18n");
+if(translations[currentLang][key]){
+element.innerHTML = translations[currentLang][key];
+}
+});
+document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+let key = element.getAttribute("data-i18n-placeholder");
+if(translations[currentLang][key]){
+element.setAttribute("placeholder", translations[currentLang][key]);
+}
+});
+document.querySelectorAll(".lang-btn").forEach((button) => {
+button.classList.toggle("active", button.getAttribute("data-lang") === currentLang);
+});
+}
+
+document.querySelectorAll(".lang-btn").forEach((button) => {
+button.addEventListener("click", () => setLanguage(button.getAttribute("data-lang")));
+});
+
+setLanguage(currentLang);
+
 function limitarPalabras(input){
 let palabras = input.value.trim().split(/\s+/);
 if(palabras.length > 2){
@@ -204,29 +717,183 @@ input.value = palabras.slice(0,2).join(" ");
 function enviarDatos(e){
 e.preventDefault();
 
-let correo = document.getElementById("correo").value;
-let nombre = document.getElementById("nombre").value;
+let form = e.target;
+let producto = form.dataset.producto || "Detalle digital Innova Furniture";
+let version = form.dataset.version || "Personalizado";
+let cliente = form.elements["cliente"].value;
+let correo = form.elements["correo"].value;
+let telefono = form.elements["telefono"].value || "No indicado";
+let nombre = form.elements["nombre"].value;
 
 let apodos = [
-document.getElementById("a1").value,
-document.getElementById("a2").value,
-document.getElementById("a3").value,
-document.getElementById("a4").value,
-document.getElementById("a5").value
-];
+form.elements["a1"].value,
+form.elements["a2"].value,
+form.elements["a3"].value,
+form.elements["a4"].value,
+form.elements["a5"].value
+].filter((apodo) => apodo.trim() !== "");
 
 let mensaje =
-"Correo: " + correo +
-"%0D%0ANombre: " + nombre +
-"%0D%0AApodos: " + apodos.join(", ");
+"RESUMEN DE ORDEN - INNOVA FURNITURE\n\n" +
+"Producto solicitado: " + producto + "\n" +
+"Tipo / versión: " + version + "\n\n" +
+"DATOS DEL CLIENTE\n" +
+"Nombre del cliente: " + cliente + "\n" +
+"Correo electrónico: " + correo + "\n" +
+"Número de contacto: " + telefono + "\n\n" +
+"DETALLES PARA PERSONALIZACIÓN\n" +
+"Nombre de la persona especial: " + nombre + "\n" +
+"Sobrenombres: " + (apodos.length ? apodos.join(", ") : "No indicados") + "\n\n" +
+"Nota: Pedido enviado desde la página web de Innova Furniture.";
 
 let url =
 "https://mail.google.com/mail/?view=cm&fs=1"
 + "&to=innovafurniture.shop@gmail.com"
-+ "&su=Pedido Innova Furniture"
++ "&su=" + encodeURIComponent("Resumen de orden - " + producto)
 + "&body=" + encodeURIComponent(mensaje);
 
 window.open(url, "_blank");
+}
+
+function enviarCorreoCronometro(e){
+e.preventDefault();
+
+let form = e.target;
+let producto = form.dataset.producto || "Cronómetro del Amor con Tulipanes";
+let version = form.dataset.version || "Standard $9.99";
+let cliente = form.elements["clienteCronometro"].value;
+let correo = form.elements["correoCronometro"].value;
+let telefono = form.elements["telefonoCronometro"].value || "No indicado";
+
+let mensaje =
+"RESUMEN DE ORDEN - INNOVA FURNITURE\n\n" +
+"Producto solicitado: " + producto + "\n" +
+"Tipo / versión: " + version + "\n\n" +
+"DATOS DEL CLIENTE\n" +
+"Nombre del cliente: " + cliente + "\n" +
+"Correo electrónico: " + correo + "\n" +
+"Número de contacto: " + telefono + "\n\n" +
+"DETALLES DEL PRODUCTO\n" +
+"Este producto no requiere nombre ni sobrenombres para personalización.\n\n" +
+"Nota: Pedido enviado desde la página web de Innova Furniture.";
+
+let url =
+"https://mail.google.com/mail/?view=cm&fs=1"
++ "&to=innovafurniture.shop@gmail.com"
++ "&su=" + encodeURIComponent("Resumen de orden - " + producto)
++ "&body=" + encodeURIComponent(mensaje);
+
+window.open(url, "_blank");
+}
+
+function crearResumenOrden(data){
+return "RESUMEN DE ORDEN - INNOVA FURNITURE\n\n" +
+"Producto solicitado: " + data.producto + "\n" +
+"Tipo / version: " + data.version + "\n\n" +
+"DATOS DEL CLIENTE\n" +
+"Nombre del cliente: " + data.cliente + "\n" +
+"Correo electronico: " + data.correo + "\n" +
+"Numero de contacto: " + data.telefono + "\n\n" +
+"DETALLES DE LA ORDEN\n" +
+data.detalles + "\n\n" +
+"Nota: Pedido enviado desde la pagina web de Innova Furniture.";
+}
+
+function crearUrlGmail(data){
+return "https://mail.google.com/mail/?view=cm&fs=1"
++ "&to=innovafurniture.shop@gmail.com"
++ "&su=" + encodeURIComponent("Resumen de orden - " + data.producto)
++ "&body=" + encodeURIComponent(data.mensaje);
+}
+
+function enviarOrdenDirecta(form, data){
+let scriptConfigurado = GOOGLE_SCRIPT_URL.trim().startsWith("https://");
+if(!scriptConfigurado){
+window.open(crearUrlGmail(data), "_blank");
+return;
+}
+
+let boton = form.querySelector("button[type='submit']");
+let textoOriginal = boton ? boton.innerHTML : "";
+if(boton){
+boton.disabled = true;
+boton.innerHTML = currentLang === "en" ? "Sending..." : "Enviando...";
+}
+
+let formData = new FormData();
+Object.keys(data).forEach((key) => formData.append(key, data[key]));
+
+fetch(GOOGLE_SCRIPT_URL, {
+method: "POST",
+mode: "no-cors",
+body: formData
+}).then(() => {
+alert(currentLang === "en" ? "Order summary sent successfully." : "Resumen de orden enviado correctamente.");
+form.reset();
+}).catch(() => {
+window.open(crearUrlGmail(data), "_blank");
+}).finally(() => {
+if(boton){
+boton.disabled = false;
+boton.innerHTML = textoOriginal;
+}
+});
+}
+
+function enviarDatos(e){
+e.preventDefault();
+
+let form = e.target;
+let producto = form.dataset.producto || "Detalle digital Innova Furniture";
+let version = form.dataset.version || "Personalizado";
+let cliente = form.elements["cliente"].value;
+let correo = form.elements["correo"].value;
+let telefono = form.elements["telefono"].value || "No indicado";
+let nombre = form.elements["nombre"].value;
+
+let apodos = [
+form.elements["a1"].value,
+form.elements["a2"].value,
+form.elements["a3"].value,
+form.elements["a4"].value,
+form.elements["a5"].value
+].filter((apodo) => apodo.trim() !== "");
+
+let data = {
+producto: producto,
+version: version,
+cliente: cliente,
+correo: correo,
+telefono: telefono,
+detalles: "Nombre de la persona especial: " + nombre + "\n" +
+"Sobrenombres: " + (apodos.length ? apodos.join(", ") : "No indicados")
+};
+
+data.mensaje = crearResumenOrden(data);
+enviarOrdenDirecta(form, data);
+}
+
+function enviarCorreoCronometro(e){
+e.preventDefault();
+
+let form = e.target;
+let producto = form.dataset.producto || "Cronometro del Amor con Tulipanes";
+let version = form.dataset.version || "Standard $9.99";
+let cliente = form.elements["clienteCronometro"].value;
+let correo = form.elements["correoCronometro"].value;
+let telefono = form.elements["telefonoCronometro"].value || "No indicado";
+
+let data = {
+producto: producto,
+version: version,
+cliente: cliente,
+correo: correo,
+telefono: telefono,
+detalles: "Este producto no requiere nombre ni sobrenombres para personalizacion."
+};
+
+data.mensaje = crearResumenOrden(data);
+enviarOrdenDirecta(form, data);
 }
 
 // 🔥 CONTADOR (YA DENTRO DEL SCRIPT)
@@ -241,7 +908,7 @@ randomCounter();
 setInterval(randomCounter, 30000);
 </script>
 
-<div style="margin-top:40px;padding:20px;color:#888;font-size:0.8em;border-top:1px solid rgba(255,215,0,0.2);">
+<div class="footer" data-i18n="footer">
 © 2026 Innova Furniture – Regalos y Detalles. Todos los derechos reservados.<br>
 Queda prohibida la reproducción total o parcial sin autorización.
 </div>
