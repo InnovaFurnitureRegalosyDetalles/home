@@ -213,11 +213,17 @@ font-size:1.35em;
 margin:18px 0 8px;
 font-weight:900;
 }
-.button-row{
+.version-grid{
 display:grid;
 grid-template-columns:repeat(2,minmax(0,1fr));
 gap:12px;
-margin:12px 0 18px;
+margin:0 0 16px;
+}
+.version-box{
+padding:12px;
+border:1px solid rgba(214,180,95,.18);
+border-radius:8px;
+background:rgba(0,0,0,.18);
 }
 a{text-decoration:none}
 button,
@@ -322,6 +328,13 @@ margin-top:8px;
 .payment-choice-link{
 margin:12px 0 6px;
 }
+.form-payment-separator{
+margin:12px 0 8px;
+text-align:center;
+}
+.order-panel .form-payment-button{
+margin-top:10px;
+}
 .footer{
 margin-top:40px;
 padding:22px;
@@ -333,7 +346,7 @@ border-top:1px solid rgba(255,215,0,.2);
 @media (max-width:760px){
 .product-grid{grid-template-columns:1fr;text-align:center}
 .product-copy{text-align:center}
-.button-row{grid-template-columns:1fr}
+.version-grid{grid-template-columns:1fr}
 .video-vertical{height:500px}
 .hero{padding-top:24px}
 }
@@ -410,27 +423,31 @@ Se trata de una tienda online Premium certificada ⭐⭐⭐⭐⭐ sólo para per
 <h2>🌌 La Majestuosa Galaxia del Amor</h2>
 <p data-i18n="galaxy1Description">Una experiencia digital romántica para mandar directo por mensaje y causar ese efecto de “wow, esto sí pensó en mí”.</p>
 
-<div class="button-row">
-<div>
-<div class="price" data-i18n="standardPrice">$9.99 - Versión Standard</div>
-<p class="small" data-i18n="standardNote">Plantilla lista para enviar (no personalizada)</p>
-</div>
-
-<div>
-<div class="price" data-i18n="customPrice">$14.99 Personalizado</div>
-<p class="small" data-i18n="customNote">Con nombre y sobrenombres especiales</p>
-</div>
-</div>
-
 <div class="receive-box">
+<div class="version-grid">
+<div class="version-box">
+<div class="price" data-i18n="standardPrice">$9.99 - Versión Standard</div>
 <h3 data-i18n="receiveTitle">📦 ¿Qué recibes?</h3>
-<p data-i18n="galaxy1Receive">
-✔ Código HTML listo<br>
-✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú le llamas 😍<br>
+<p data-i18n="standardReceive">
+✔ Versión Standard: plantilla lista para enviar, no personalizada<br>
 ✔ Compatible con celular y PC<br>
 ✔ Link para compartir<br>
 ✔ Entrega en máximo 24h 💌
 </p>
+</div>
+
+<div class="version-box">
+<div class="price" data-i18n="customPrice">$14.99 Personalizado</div>
+<p class="small" data-i18n="customNote">Con nombre y sobrenombres especiales</p>
+<h3 data-i18n="receiveTitle">📦 ¿Qué recibes?</h3>
+<p data-i18n="customReceive">
+✔ Versión Personalizada: nombre y hasta 5 sobrenombres especiales 😍<br>
+✔ Compatible con celular y PC<br>
+✔ Link para compartir<br>
+✔ Entrega en máximo 24h 💌
+</p>
+</div>
+</div>
 </div>
 
 <div class="order-panel">
@@ -465,8 +482,10 @@ Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>
 <input type="text" name="a5" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 5" data-i18n-placeholder="nickname5"><br>
 </div>
 
-<a class="button-link payment-choice-link" href="https://www.paypal.com/ncp/payment/8DLWACR23MNNE" target="_blank" data-i18n="paySelected">Pagar opción seleccionada 💳</a>
+<p class="small" data-i18n="sendFirstNote">Primero envía los datos de tu pedido para recibir el resumen correctamente.</p>
 <button type="submit" data-i18n="sendData">Enviar Datos 💖</button>
+<p class="small" data-i18n="payAfterNote">Después de enviar tus datos, procede con el pago de la opción seleccionada.</p>
+<a class="button-link payment-choice-link" href="https://www.paypal.com/ncp/payment/8DLWACR23MNNE" target="_blank" data-i18n="paySelected">Pagar opción seleccionada 💳</a>
 </form>
 
 <p class="small" data-i18n="manualEmail">
@@ -492,27 +511,31 @@ innovafurniture.shop@gmail.com
 <h2>🌌 La Imponente Galaxia Eterna</h2>
 <p data-i18n="galaxy2Description">Una animación premium con vibra intensa, elegante y lista para sorprender sin parecer el típico detalle de siempre.</p>
 
-<div class="button-row">
-<div>
-<div class="price" data-i18n="standardPrice">$9.99 - Versión Standard</div>
-<p class="small" data-i18n="standardNote">Plantilla lista para enviar (no personalizada)</p>
-</div>
-
-<div>
-<div class="price" data-i18n="customPrice">$14.99 Personalizado</div>
-<p class="small" data-i18n="customNote">Con nombre y sobrenombres especiales</p>
-</div>
-</div>
-
 <div class="receive-box">
+<div class="version-grid">
+<div class="version-box">
+<div class="price" data-i18n="standardPrice">$9.99 - Versión Standard</div>
 <h3 data-i18n="receiveTitle">📦 ¿Qué recibes?</h3>
-<p data-i18n="galaxy2Receive">
-✔ Código HTML listo<br>
-✔ Animación premium<br>
-✔ Personalizado con su nombre y hasta 5 sobrenombres especiales que solo ustedes entienden o con la forma única en que tú le llamas 😍<br>
-✔ Link listo para enviar<br>
+<p data-i18n="standardReceive">
+✔ Versión Standard: plantilla lista para enviar, no personalizada<br>
+✔ Compatible con celular y PC<br>
+✔ Link para compartir<br>
 ✔ Entrega en máximo 24h 💌
 </p>
+</div>
+
+<div class="version-box">
+<div class="price" data-i18n="customPrice">$14.99 Personalizado</div>
+<p class="small" data-i18n="customNote">Con nombre y sobrenombres especiales</p>
+<h3 data-i18n="receiveTitle">📦 ¿Qué recibes?</h3>
+<p data-i18n="customReceive">
+✔ Versión Personalizada: nombre y hasta 5 sobrenombres especiales 😍<br>
+✔ Compatible con celular y PC<br>
+✔ Link para compartir<br>
+✔ Entrega en máximo 24h 💌
+</p>
+</div>
+</div>
 </div>
 
 <div class="order-panel">
@@ -547,8 +570,10 @@ Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>
 <input type="text" name="a5" maxlength="20" oninput="limitarPalabras(this)" placeholder="Sobrenombre 5" data-i18n-placeholder="nickname5"><br>
 </div>
 
-<a class="button-link payment-choice-link" href="https://www.paypal.com/ncp/payment/2RZGEZYSQ9FES" target="_blank" data-i18n="paySelected">Pagar opción seleccionada 💳</a>
+<p class="small" data-i18n="sendFirstNote">Primero envía los datos de tu pedido para recibir el resumen correctamente.</p>
 <button type="submit" data-i18n="sendData">Enviar Datos 💖</button>
+<p class="small" data-i18n="payAfterNote">Después de enviar tus datos, procede con el pago de la opción seleccionada.</p>
+<a class="button-link payment-choice-link" href="https://www.paypal.com/ncp/payment/2RZGEZYSQ9FES" target="_blank" data-i18n="paySelected">Pagar opción seleccionada 💳</a>
 </form>
 
 <p class="small" data-i18n="manualEmail">
@@ -571,7 +596,6 @@ innovafurniture.shop@gmail.com
 <h2>⏳ Cronómetro del Amor con Tulipanes 🌷</h2>
 
 <div class="price">$9.99</div>
-<a class="button-link" href="https://www.paypal.com/ncp/payment/QBGLHE23VPNB6" target="_blank" data-i18n="payNow">Pagar ahora 💳</a>
 
 <div class="receive-box">
 <h3 data-i18n="receiveTitle">📦 ¿Qué recibes?</h3>
@@ -596,6 +620,8 @@ Preferible usar el mismo correo con el que hiciste el pago<br>
 <input type="email" name="correoCronometro" placeholder="Tu correo (preferible el del pago)" data-i18n-placeholder="timerEmailPlaceholder" required><br>
 <input type="tel" name="telefonoCronometro" placeholder="Número de contacto (opcional)" data-i18n-placeholder="phonePlaceholder"><br>
 <button type="submit" data-i18n="sendEmail">Enviar Correo 💳</button>
+<p class="small form-payment-separator" data-i18n="payAfterSummary">Después de enviar el resumen, procede con el pago.</p>
+<a class="button-link form-payment-button" href="https://www.paypal.com/ncp/payment/QBGLHE23VPNB6" target="_blank" data-i18n="payNow">Pagar ahora 💳</a>
 </form>
 
 <p class="small" data-i18n="manualEmail">
@@ -653,11 +679,13 @@ payNow: "Pagar ahora 💳",
 paySelected: "Pagar opción seleccionada 💳",
 customize: "Personalizar 💖",
 receiveTitle: "📦 ¿Qué recibes?",
+standardReceive: "✔ Versión Standard: plantilla lista para enviar, no personalizada<br>✔ Compatible con celular y PC<br>✔ Link para compartir<br>✔ Entrega en máximo 24h 💌",
+customReceive: "✔ Versión Personalizada: nombre y hasta 5 sobrenombres especiales 😍<br>✔ Compatible con celular y PC<br>✔ Link para compartir<br>✔ Entrega en máximo 24h 💌",
 galaxy1Receive: "✔ Versión Standard: plantilla lista para enviar, no personalizada<br>✔ Versión Personalizada: nombre y hasta 5 sobrenombres especiales 😍<br>✔ Compatible con celular y PC<br>✔ Link para compartir<br>✔ Entrega en máximo 24h 💌",
 galaxy2Receive: "✔ Versión Standard: plantilla lista para enviar, no personalizada<br>✔ Versión Personalizada: animación premium con nombre y hasta 5 sobrenombres especiales 😍<br>✔ Link listo para enviar<br>✔ Entrega en máximo 24h 💌",
 timerReceive: "✔ Cronómetro romántico<br>✔ Código HTML completo<br>✔ Listo para compartir<br>✔ Entrega en máximo 24h 💌",
 orderTitle: "📩 Enviar Datos del Pedido",
-orderWarning: "⚠️ Solo pedidos con pago verificado<br>Elige la versión que vas a comprar antes de enviar la orden<br>Podemos solicitar comprobante de pago para validar la orden<br>El paquete se enviará al correo proporcionado en el formulario<br>Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>⏱️ Entrega en máximo 24 horas",
+orderWarning: "⚠️ Solo pedidos con pago verificado<br>Elige la versión que vas a comprar antes de enviar la orden<br>El paquete se enviará al correo proporcionado en el formulario<br>Máx. 5 sobrenombres (máx. 2 palabras cada uno)<br>⏱️ Entrega en máximo 24 horas",
 emailPlaceholder: "Tu correo (el del pago)",
 clientNamePlaceholder: "Tu nombre completo",
 phonePlaceholder: "Número de contacto (opcional)",
@@ -668,11 +696,14 @@ nickname3: "Sobrenombre 3",
 nickname4: "Sobrenombre 4",
 nickname5: "Sobrenombre 5",
 sendData: "Enviar Datos 💖",
+sendFirstNote: "Primero envía los datos de tu pedido para recibir el resumen correctamente.",
+payAfterNote: "Después de enviar tus datos, procede con el pago de la opción seleccionada.<br>Podemos solicitar comprobante de pago para validar la orden.",
 manualEmail: "📧 Envío manual recomendado (respuesta más rápida ⚡)<br>innovafurniture.shop@gmail.com",
 contactEmailTitle: "📩 Correo de Contacto",
 contactEmailWarning: "⚠️ Solo pedidos con pago verificado<br>Podemos solicitar comprobante de pago para validar la orden<br>El paquete se enviará al correo proporcionado en el formulario<br>Preferible usar el mismo correo con el que hiciste el pago<br>⏱️ Entrega en máximo 24 horas",
 timerEmailPlaceholder: "Tu correo (preferible el del pago)",
 sendEmail: "Enviar Resumen 💳",
+payAfterSummary: "Después de enviar el resumen, procede con el pago.",
 comingSoonTitle: "🚧 Próximamente",
 comingSoonText: "Nuevos detalles digitales en desarrollo 💖",
 newExperiencesTitle: "✨ Nuevas Experiencias",
@@ -704,11 +735,13 @@ payNow: "Pay now 💳",
 paySelected: "Pay selected option 💳",
 customize: "Customize 💖",
 receiveTitle: "📦 What do you receive?",
+standardReceive: "✔ Standard Version: ready-to-send template, not personalized<br>✔ Compatible with phone and PC<br>✔ Shareable link<br>✔ Delivered within 24h 💌",
+customReceive: "✔ Personalized Version: name and up to 5 special nicknames 😍<br>✔ Compatible with phone and PC<br>✔ Shareable link<br>✔ Delivered within 24h 💌",
 galaxy1Receive: "✔ Standard Version: ready-to-send template, not personalized<br>✔ Personalized Version: name and up to 5 special nicknames 😍<br>✔ Compatible with phone and PC<br>✔ Shareable link<br>✔ Delivered within 24h 💌",
 galaxy2Receive: "✔ Standard Version: ready-to-send template, not personalized<br>✔ Personalized Version: premium animation with name and up to 5 special nicknames 😍<br>✔ Link ready to send<br>✔ Delivered within 24h 💌",
 timerReceive: "✔ Romantic timer<br>✔ Complete HTML code<br>✔ Ready to share<br>✔ Delivered within 24h 💌",
 orderTitle: "📩 Send Order Details",
-orderWarning: "⚠️ Only orders with verified payment<br>Choose the version you are buying before sending the order<br>We may request proof of payment to validate the order<br>The package will be sent to the email provided in the form<br>Max. 5 nicknames (max. 2 words each)<br>⏱️ Delivered within 24 hours",
+orderWarning: "⚠️ Only orders with verified payment<br>Choose the version you are buying before sending the order<br>The package will be sent to the email provided in the form<br>Max. 5 nicknames (max. 2 words each)<br>⏱️ Delivered within 24 hours",
 emailPlaceholder: "Your email (the one used for payment)",
 clientNamePlaceholder: "Your full name",
 phonePlaceholder: "Contact number (optional)",
@@ -719,11 +752,14 @@ nickname3: "Nickname 3",
 nickname4: "Nickname 4",
 nickname5: "Nickname 5",
 sendData: "Send Details 💖",
+sendFirstNote: "First send your order details so the summary is received correctly.",
+payAfterNote: "After sending your details, proceed with the payment for the selected option.<br>We may request proof of payment to validate the order.",
 manualEmail: "📧 Manual email recommended (faster response ⚡)<br>innovafurniture.shop@gmail.com",
 contactEmailTitle: "📩 Contact Email",
 contactEmailWarning: "⚠️ Only orders with verified payment<br>We may request proof of payment to validate the order<br>The package will be sent to the email provided in the form<br>Preferably use the same email used for payment<br>⏱️ Delivered within 24 hours",
 timerEmailPlaceholder: "Your email (preferably the payment email)",
 sendEmail: "Send Summary 💳",
+payAfterSummary: "After sending the summary, proceed with payment.",
 comingSoonTitle: "🚧 Coming Soon",
 comingSoonText: "New digital details in development 💖",
 newExperiencesTitle: "✨ New Experiences",
